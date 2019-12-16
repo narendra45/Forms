@@ -1,0 +1,24 @@
+<table align="center">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>View Details</th>
+        <th>partialupdate</th>
+        <th>UpdateDetails</th>
+        <th>Delete</th>
+
+    </tr>
+    {% if data %}
+        {% for x in data %}
+            <tr>
+                <th>{{ x.id }}</th>
+                <th>{{ x.name }}</th>
+                <th><a href="/viewdetails/{{ x.id }}">Yes</a> </th>
+                <th><a href="/partialupdate/?id={{ x.id }}"> Partial</a></th>
+                <th><a href="{% url 'update' %}?id={{ x.id }}">Yes</a> </th>
+                <th><a href="{% url 'delete' x.id %}">Yes</a></th>
+
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
